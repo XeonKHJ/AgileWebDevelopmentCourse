@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            /* 去除默认样式 */
+            margin: 0;
+            padding: 0;
+        }
+
+        #menubar {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background-color: black;
+        }
+
+        #buttonbar {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 150px;
+            padding: 20px 0 0 0;
+            background-color: black;
+        }
+
+        #whatis {
+            border-radius: 20px;
+            background-color: #467612;
+            padding: 20px;
+            margin: 10px 0;
+        }
+
+        #whatis h2 {
+            color: white;
+        }
+
+        #whatis p {
+            color: #DDF89C;
+        }
+
+        .maincontent {
+            top: 130px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 1000px;
+        }
+
+        #title {
+            top: 20px;
+        }
+
+        #menucontent {
+            top: 0px;
+            float: left;
+            color: white;
+        }
+
+        .datetime {
+            color: gray;
+            font-size: 10px;
+            font-style: italic;
+            margin: 5px 0;
+        }
+
+        .menuitem {
+            float: left;
+        }
+
+        #tagdiv {
+            width: 300px;
+        }
+
+        #bottomcontent {
+            top: auto;
+            bottom: 0;
+            height: 150px;
+        }
+
+        #bottomcontent div {
+            float: left;
+            width: 333px;
+        }
+
+        #bottomcontent div ul {
+            color: white;
+            font-size: 10px;
+            text-decoration: underline;
+        }
+
+        #bottomcontent div h4 {
+            color: white;
+            font-weight: normal;
+        }
+
+        #menuitem:hover p {
+            color: #467612;
+        }
+
+        .menuitem>a {
+            background-color: black;
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .menuitem:hover a {
+            background-color: #467612;
+        }
+
+        #tagdiv ul{
+            text-indent: 1em;
+        }
+
+        #tagdiv li{
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2 class="maincontent" id="title">HTML 5</h2>
+
+        <div id="menubar">
+            <div class="maincontent" id="menucontent">
+                <ul id="menulist" style="list-style: none;">
+                    <li class="menuitem"><a href="">博客</a></li>
+                    <li class="menuitem"><a href="">关于</a></li>
+                    <li class="menuitem"><a href="">联系</a></li>
+                    <li class="menuitem"><a href="">RSS</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="maincontent">
+            <div id="content">
+                <div id="whatis">
+                    <h2>什么是HTML 5</h2>
+                    <p>HTML 5是XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+                </div>
+            </div>
+
+            <div style="float: left;">
+                <div>
+                    <h2>HTML 5新标签</h2>
+                    <p class="datetime">时间：2016.02.01 作者：XXX</p>
+                    <p>这是一篇文章啦啦啦啦啦啦啦</p>
+                </div>
+            </div>
+            <div id="tagdiv" style="float: right;">
+                <h2>标签</h2>
+                <ul style="list-style: none">
+                    <li>
+                        HTML5
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="buttonbar">
+        </div>
+        <div class="maincontent" id="bottomcontent">
+            <div>
+                <h4 style="color: white;">关于</h4>
+                <ul style="list-style: none">
+                    <li>
+                        什么内容
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: white;">友情链接</h4>
+                <ul style="list-style: none">
+                    <li>
+                        啊
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4>流行</h4>
+                <ul style="list-style: none">
+                    <li>
+                        这是
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
