@@ -8,7 +8,7 @@
 <body>
 <h1>制作动态表格</h1>
 	<div align="center">
-		<button id="add">添加</button>
+		<button id="add" onclick="addRow()">添加</button>
 		<table id="tab" border="1" style="width: 50% ;">
 			<tr>
 				<th>姓名</th>
@@ -31,4 +31,43 @@
 		</table>
 	</div>
 </body>
+
+<script type="text/javascript">
+	function addRow()
+	{
+		var table = document.getElementById("tab")
+		table.innerHTML += "<tr><th class=\"valueTh\"><input/></th><th class=\"valueTh\"><input/></th><th class=\"valueTh\"><input/></th><th class=\"buttonTh\"><button onclick=\"confirmed(this)\">确认</button></th>"
+	}
+
+
+	function confirmed(button)
+	{
+		var buttonTh = button.parentNode
+		var trNode = button.parentNode.parentNode;
+		valueThs = trNode.getElementsByClassName("valueTh")
+		for(var i = 0; i < valueThs.length; ++i)
+		{
+			valueThs[i].innerHTML = valueThs[i].childNodes[0].value
+		}
+		buttonTh.innerHTML = "<button onclick=\"modify(this)\">修改</button><button onclick=\"removeItem(this)\">删除</button>"
+	}
+
+	function modify(button)
+	{
+		var buttonTh = button.parentNode
+		var trNode = button.parentNode.parentNode;
+		valueThs = trNode.getElementsByClassName("valueTh")
+		
+		trNode.innerHTML = "<tr><th class=\"valueTh\"><input value=\"" + valueThs[0].innerHTML +  "\"/></th><th class=\"valueTh\"><input value=\"" + valueThs[1].innerHTML +  "\"/></th><th class=\"valueTh\"><input value=\"" + valueThs[2].innerHTML +  "\"/></th><th class=\"buttonTh\"><button onclick=\"confirmed(this)\">确认</button></th>"
+	}
+
+	function removeItem(button)
+	{
+		var buttonTh = button.parentNode
+		var trNode = button.parentNode.parentNode;
+		var table = trNode.parentNode
+		table.removeChild(trNode)
+
+	}
+</script>
 </html>
