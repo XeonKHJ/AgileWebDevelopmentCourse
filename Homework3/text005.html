@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>t5</title>
+</head>
+
+<body>
+	<h1>静态赋值</h1>
+	<form action="text006.html">
+		<p>姓名: <input id="name" name="name" /></p>
+		<p>年龄: <input id="age" name="age" /></p>
+		<p><input type="radio" id="male" name="sex" />男<input type="radio" id="female" name="sex" />女</p>
+		<p><input type="submit" value="点击选择" onclick="login()" /></p>
+	</form>
+</body>
+<script type="text/javascript">
+	var name = decodeURI(getQueryVariable('name'))
+	var age = decodeURI(getQueryVariable("age"))
+	var sex = decodeURI(getQueryVariable("gender"))
+	
+	document.getElementById("name").value = name
+	document.getElementById("age").value = age
+	if(sex == '男')
+	{
+		document.getElementById('male').checked = true
+	}
+	else if(sex == '女')
+	{
+		document.getElementById('female').checked = true
+	}
+
+	function getQueryVariable(variable) {
+		var query = window.location.search.substring(1);
+		var vars = query.split("&");
+		for (var i = 0; i < vars.length; i++) {
+			var pair = vars[i].split("=");
+			if (pair[0] == variable) { return pair[1]; }
+		}
+		return (false);
+	}
+</script>
+
+</html>

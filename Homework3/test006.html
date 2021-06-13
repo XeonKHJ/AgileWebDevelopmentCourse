@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1" style="width: 30%">
+        <tbody>
+            <tr>
+                <td><input type="radio" name="person" value="貂蝉_18_女"></td>
+                <td>貂蝉</td>
+                <td>18</td>
+                <td>女</td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="person" value="西施_18_女"></td>
+                <td>西施</td>
+                <td>18</td>
+                <td>女</td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="person" value="张飞_22_男"></td>
+                <td>张飞</td>
+                <td>22</td>
+                <td>男</td>
+            </tr>
+            <tr>
+                <td colspan="4" align="center"><button onclick="confirmClicked()" id="but">确认选择</button> </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+<script type="text/javascript">
+    function confirmClicked() {
+        var item = null;
+        var obj = document.getElementsByName("person")
+        for (var i = 0; i < obj.length; i++) { //遍历Radio 
+            if (obj[i].checked) {
+                item = obj[i].value;
+                break;
+            }
+        }
+        var name = item.split('_')
+        var newPageUrl = 'text005.html?name=' + name[0] + '&age=' + name[1] + '&gender=' + name[2]
+
+        var myWindow = window.open(newPageUrl, 'width=200,height=100');
+        //myWindow.document.write("<p>这是我的窗口</p>");
+        //myWindow.focus();
+        //myWindow.opener.document.write("<p>这个是源窗口!</p>");
+
+    }
+
+</script>
+
+</html>
