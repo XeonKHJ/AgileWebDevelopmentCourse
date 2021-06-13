@@ -1,30 +1,80 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>t2</title>
+	<meta charset="UTF-8">
+	<title>t2</title>
 </head>
+
 <body>
-<h1>下拉列表的左右移动</h1>
-<select multiple="multiple" style="width: 100px ; height: 200px">
-	<option>赵云</option>
-	<option>关羽</option>
-	<option>张飞</option>
-	<option>刘备</option>
-	<option>黄忠</option>
-	<option>马超</option>
-	<option>魏延</option>
-	<option>吕布</option>
-	<option>曹操</option>
-	<option>诸葛亮</option>
-</select>
-<select multiple="multiple" style="width: 100px ; height: 200px" >
-	<option>许褚</option>
-	<option>张辽</option>
-	<option>曹仁</option>
-	<option>司马懿</option>
-</select>
-<p><button>右移</button> <button>左移</button></p>
-<p><button>全右移</button> <button>全左移</button></p>
+	<h1>下拉列表的左右移动</h1>
+	<select multiple="multiple" id="leftSelect" style="width: 100px ; height: 200px">
+		<option>赵云</option>
+		<option>关羽</option>
+		<option>张飞</option>
+		<option>刘备</option>
+		<option>黄忠</option>
+		<option>马超</option>
+		<option>魏延</option>
+		<option>吕布</option>
+		<option>曹操</option>
+		<option>诸葛亮</option>
+	</select>
+	<select multiple="multiple" id="rightSelect" style="width: 100px ; height: 200px">
+		<option>许褚</option>
+		<option>张辽</option>
+		<option>曹仁</option>
+		<option>司马懿</option>
+	</select>
+	<p><button onclick="moveToRight()">右移</button> <button onclick="moveToLeft()">左移</button></p>
+	<p><button onclick="moveAllToRight()">全右移</button> <button onclick="moveAllToLeft()">全左移</button></p>
 </body>
+<script>
+	function moveToRight() {
+		var leftSelect = document.getElementById("leftSelect")
+		var rightSelect = document.getElementById("rightSelect")
+
+		for (var i = leftSelect.length - 1; i >= 0; --i) {
+			if (leftSelect[i].selected == true) {
+				leftSelect[i].selected = false
+				rightSelect.append(leftSelect[i])
+				//leftSelect.remove(leftSelect[i]);
+			}
+		}
+	}
+
+	function moveToLeft() {
+		var leftSelect = document.getElementById("leftSelect")
+		var rightSelect = document.getElementById("rightSelect")
+
+		for (var i = rightSelect.length - 1; i >= 0; --i) {
+			if (rightSelect[i].selected == true) {
+				rightSelect[i].selected = false
+				leftSelect.append(rightSelect[i])
+			}
+		}
+	}
+
+	function moveAllToLeft() {
+		var leftSelect = document.getElementById("leftSelect")
+		var rightSelect = document.getElementById("rightSelect")
+
+		for (var i = rightSelect.length - 1; i >= 0; --i) {
+			rightSelect[i].selected = false
+			leftSelect.append(rightSelect[i])
+		}
+	}
+
+	function moveAllToRight() {
+		var leftSelect = document.getElementById("leftSelect")
+		var rightSelect = document.getElementById("rightSelect")
+
+		for (var i = leftSelect.length - 1; i >= 0; --i) {
+			leftSelect[i].selected = false
+			rightSelect.append(leftSelect[i])
+			//leftSelect.remove(leftSelect[i]);
+		}
+	}
+</script>
+
 </html>
