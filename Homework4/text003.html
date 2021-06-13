@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>t3</title>
+</head>
+<body>
+<h1>省市二级联动</h1>
+<select id="s1" onchange="shi(this.value)">
+	<option value="">--请选择---</option>
+</select>
+<select id="s2"></select>
+</body>
+<script type="text/javascript">
+	var arr = new Array()
+	arr[0] = ['陕西省','西安市','咸阳市','宝鸡市','汉中市'];
+	arr[1] = ['贵州省','贵阳市','遵义市','毕节市','六盘水'];
+	arr[2] = ['山东省','菏泽市','济南市','青岛市','济宁市'];
+
+	var s1 =document.getElementById('s1')
+	var s2 =document.getElementById('s2')
+	
+	//创建option标签
+	for (var i = 0; i < arr.length; i++) {
+		var option  = document.createElement("option");
+		option.value = arr[i][0];
+		var text = document.createTextNode(arr[i][0]);
+		option.appendChild(text);
+		s1.appendChild(option)
+	}
+	
+	//市
+	function shi(v){
+		//清空s2
+		var opts2 = s2.getElementsByTagName("option")
+		for (var i = 0; i < opts2.length; i++) {
+			s2.removeChild(opts2[i])
+			i--;
+		}
+		
+		//找到对应的数组
+		for (var i = 0; i < arr.length; i++) {
+			if(arr[i][0] == v){
+				for (var j = 1; j < arr[i].length; j++) {
+					var option  = document.createElement("option");
+					option.value = arr[i][j];
+					var text = document.createTextNode(arr[i][j]);
+					option.appendChild(text);
+					s2.appendChild(option)
+				}
+			}
+		}
+	}	
+</script>
+</html>
