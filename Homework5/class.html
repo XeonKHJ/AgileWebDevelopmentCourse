@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    class Person{
+        constructor(name, age, height)
+        {
+            this.name = name
+            this.age = age
+            this.height = height
+        }
+
+        show()
+        {
+            console.log(this.name + " " + this.age + " " + this.height)
+        }
+    }
+    let person = new Person("sdf", 15, 180)
+    person.show()
+</script>
+</html>
